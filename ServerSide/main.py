@@ -1,3 +1,10 @@
+"""
+Author: Ido Karadi
+Program Name: Cyber2.6
+Desc: Server&Client sides of a basic 4 command server
+Date: 14/11/23
+"""
+
 import socket
 import random
 from datetime import datetime
@@ -10,15 +17,27 @@ current_hour = now.strftime("%H:%M:%S")
 
 
 def time():
+    """
+    Function Time:
+    returns current hour in H/M/S format.
+    """
     return current_hour
 
 
 def rand():
+    """
+    function rand:
+    returns a random number between 1-10.
+    """
     random_num = random.randint(1, 11)
     return str(random_num)
 
 
 def main():
+    """
+    Function main:
+    runs the server on an infinite loop, disconnects from client after command and closes server after command 'exit'
+    """
     my_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
         my_socket.bind(('0.0.0.0', 1729))
